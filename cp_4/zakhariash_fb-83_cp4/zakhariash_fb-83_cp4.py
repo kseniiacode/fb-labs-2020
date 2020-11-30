@@ -160,17 +160,16 @@ if Verify(MessA[0], MessA[1], publicA[1], publicA[0]):
 if Verify(MessB[0], MessB[1], publicB[1], publicB[0]):
     print('B verified')
 
-p1, q1 = GetPQ()
-d1, [n1, e1] = GenerateKeyPair(p1, q1)
+[n1, e1] =  [int('8E9ADF6514943513235A9446F726B61C58F62F0388234AAAF16DEB95E61539D5C302B6257E49F6332324AF25DBEDCA346121B3E4B89E88185A4449C10E70D369', 16), int('10001', 16)]
 p0, q0 = GetPQ()
 d, [n, e] = GenerateKeyPair(p0, q0)
 print(hex(d))
 print(hex(n), hex(e))
 print('Key: ')
-k = random.randint(1, n - 1)
+k = random.randint(1, 513)
 print(hex(k))
 sended = SendKey([n, e], d, [n1, e1], k)
 print(hex(sended[0]), hex(sended[1]))
-recieved = RecieveKey([n1, e1], d1, [n, e], sended)
-print('Recieved:')
-print(hex(recieved[0]), hex(recieved[1]))
+#recieved = RecieveKey([n1, e1], d1, [n, e], sended)
+#print('Recieved:')
+#print(hex(recieved[0]), hex(recieved[1]))
